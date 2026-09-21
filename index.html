@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CSP: без 'unsafe-inline' для script-src — оба boot-скрипта и загрузчик
+         Яндекс.Метрики вынесены в public/. Домены mc.yandex.ru / yastatic.net /
+         mc.webvisor.* — по официальному списку для Метрики с Вебвизором:
+         https://yandex.ru/support/metrica/code/install-counter-csp.html -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://mc.yandex.ru https://yastatic.net https://mc.webvisor.com https://mc.webvisor.org; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://mc.yandex.ru; font-src 'self'; connect-src 'self' https://api.web3forms.com https://mc.yandex.ru wss://mc.yandex.ru https://mc.webvisor.com https://mc.webvisor.org; child-src blob: https://mc.yandex.ru; frame-src blob: https://mc.yandex.ru https://mc.webvisor.com https://mc.webvisor.org; manifest-src 'self'; object-src 'none'; base-uri 'self'" />
+    <!-- Тема до первой отрисовки (без FOUC): localStorage → prefers-color-scheme → dark.
+         Логика должна совпадать с initialTheme() в src/theme-provider.tsx -->
+    <script src="theme-init.js"></script>
+    <!-- Восстановление чистого URL после SPA-fallback из 404.html (GitHub Pages):
+         404.html сохраняет запрошенный путь в sessionStorage и редиректит на корень,
+         здесь возвращаем его в адресную строку до загрузки React. -->
+    <script src="spa-restore.js"></script>
+    <!-- Яндекс.Метрика: внешний загрузчик (без inline из-за CSP), defer —
+         не блокирует рендер; сам счётчик активен только на продовом домене
+         и только после явного согласия в cookie-баннере (152-ФЗ) -->
+    <script src="metrika-init.js" defer></script>
+    <meta name="description" content="Дмитрий Толстиков — продуктовый fullstack-разработчик (.NET + React) с навыками DevOps. Проекты, опыт, технологии." />
+    <link rel="canonical" href="https://tolstikov-dev.github.io/portfolio/" />
+    <link rel="alternate" hreflang="ru" href="https://tolstikov-dev.github.io/portfolio/" />
+    <link rel="alternate" hreflang="en" href="https://tolstikov-dev.github.io/portfolio/?lang=en" />
+    <link rel="alternate" hreflang="x-default" href="https://tolstikov-dev.github.io/portfolio/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Дмитрий Толстиков — портфолио" />
+    <meta property="og:title" content="Дмитрий Толстиков — Fullstack-разработчик (.NET + React) & DevOps" />
+    <meta property="og:description" content="Проектирую и довожу до production веб-системы целиком: интерфейс, backend, база данных, инфраструктура и деплой. 3+ года коммерческой разработки." />
+    <meta property="og:url" content="https://tolstikov-dev.github.io/portfolio/" />
+    <meta property="og:image" content="https://tolstikov-dev.github.io/portfolio/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:locale:alternate" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Дмитрий Толстиков — Fullstack-разработчик (.NET + React) & DevOps" />
+    <meta name="twitter:description" content="Проектирую и довожу до production веб-системы целиком: интерфейс, backend, база данных, инфраструктура и деплой." />
+    <meta name="twitter:image" content="https://tolstikov-dev.github.io/portfolio/og-image.png" />
+
+    <!-- Icons & manifest -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <meta name="theme-color" content="#0E1016" />
+
+    <title>Дмитрий Толстиков — Fullstack-разработчик (.NET + React) & DevOps</title>
+
+    <!-- Schema.org: Person -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Дмитрий Толстиков",
+        "alternateName": "Dmitry Tolstikov",
+        "jobTitle": "Fullstack-разработчик (.NET Core + React)",
+        "url": "https://tolstikov-dev.github.io/portfolio/",
+        "image": "https://tolstikov-dev.github.io/portfolio/og-image.png",
+        "email": "mailto:tolstikov.dmitriy.o@gmail.com",
+        "telephone": "+7 930 970-04-48",
+        "address": { "@type": "PostalAddress", "addressRegion": "Московская область", "addressCountry": "RU" },
+        "sameAs": ["https://github.com/tolstikov-dev", "https://t.me/tolstikov-dev"],
+        "knowsAbout": ["C#", "ASP.NET Core", "React", "Next.js", "TypeScript", "PostgreSQL", "MS SQL", "Kafka", "Docker", "CI/CD", "DevOps"]
+      }
+    </script>
+    <script type="module" crossorigin src="/portfolio/assets/index-DIsD6v8t.js"></script>
+    <link rel="modulepreload" crossorigin href="/portfolio/assets/react-DWYR_daP.js">
+    <link rel="modulepreload" crossorigin href="/portfolio/assets/motion-BbccyF2-.js">
+    <link rel="stylesheet" crossorigin href="/portfolio/assets/index-Dq08JZHr.css">
+      <link rel="preload" as="font" type="font/woff2" crossorigin href="/portfolio/assets/inter-cyrillic-400-normal-obahsSVq.woff2" />
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="/portfolio/assets/inter-latin-400-normal-C38fXH4l.woff2" />
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="/portfolio/assets/inter-latin-700-normal-Yt3aPRUw.woff2" />
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="/portfolio/assets/inter-cyrillic-700-normal-CjBOestx.woff2" />
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="/portfolio/assets/manrope-cyrillic-700-normal-Dw_fZAg2.woff2" />
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="/portfolio/assets/manrope-latin-700-normal-BZp_XxE4.woff2" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- Noscript-фолбэк Метрики намеренно отсутствует: без JS нельзя показать
+         баннер и получить согласие (152-ФЗ), значит, и пиксель незаконен. -->
+  </body>
+</html>
